@@ -40,8 +40,15 @@ app.factory('basedOnUrlService', function() {
   var basedOnUrlService = {};
 
   basedOnUrlService.getThings = function(param1, param2, operator, routeParams) {
+    console.log(param2);
 
-    if ((operator.match(/^add$|^subtract$|^multiply$|^divide$|^modulus$/)) &&
+    if (param1 === undefined) {
+      return false;
+    }
+    else if (param2 === undefined || param2 === true || param2 === "") {
+      return false;
+    }
+    else if ((operator.match(/^add$|^subtract$|^multiply$|^divide$|^modulus$/)) &&
         (param1.match(/^-?\d*(\.\d+)?$/)) && 
         (param2.match(/^-?\d*(\.\d+)?$/))
        )

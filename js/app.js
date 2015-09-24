@@ -1,6 +1,6 @@
 var app = angular.module('calcApp', ['ngRoute']);
 
-app.config(function($routeProvider) {
+app.config(function($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'partials/home.html',    
@@ -16,4 +16,5 @@ app.config(function($routeProvider) {
     })
     .otherwise('/');
 
+  //$locationProvider.html5Mode(true);
 });

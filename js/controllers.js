@@ -1,5 +1,4 @@
 app.controller('RouteParamsController', ['$scope','$routeParams', 'CalcUrlService', 'basedOnUrlService', function($scope, $routeParams, CalcUrlService, basedOnUrlService) {
-
   $scope.operator = $routeParams.operator;
   $scope.param1 = $routeParams.param1;
   $scope.param2 = $routeParams.param2;
@@ -9,11 +8,12 @@ app.controller('RouteParamsController', ['$scope','$routeParams', 'CalcUrlServic
 
 }]);
 
-app.controller('RouteParamsController2', ['$scope','$routeParams', 'CalcUrlService', 'basedOnUrlService', function($scope, $routeParams, CalcUrlService, basedOnUrlService) {
-  
+app.controller('RouteParamsController2', ['$scope','$routeParams', 'CalcUrlService', 'basedOnUrlService', function($scope, $routeParams, CalcUrlService, basedOnUrlService) { 
   $scope.operator = $routeParams.operator;
   $scope.param1 = $routeParams.x;
   $scope.param2 = $routeParams.y;
+
+  console.log($routeParams);
 
   $scope.show = basedOnUrlService.getThings($scope.param1, $scope.param2, $scope.operator, $routeParams);
   $scope.solution = CalcUrlService.getAns(+$scope.param1, +$scope.param2, $scope.operator, $routeParams);
